@@ -3,7 +3,7 @@ package fillRegisterProfile;
 public class Login {
 	private String username;
 	private String password;
-	
+	private String status;
 	public Login() {
 		
 	}
@@ -26,11 +26,14 @@ public class Login {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String toString(){
-		String text = "ส่วนที่ 3 ข้อมูลการเข้าสู่ระบบ" + 
-					"\n\tชื่อผู้ใช้ : " + getUsername() + 
-					"\n\tรหัสผ่าน : " + getPassword();
-		return text;
+
+	public String getStatus() {
+		return status;
 	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 }

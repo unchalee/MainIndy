@@ -139,14 +139,20 @@ public class Register {
 		return false;
 	}
 
-	public boolean verifyLogin(String username, String password){
-		for(int i = 0;i<traineeVector.size();i++){			
-			if(this.traineeVector.elementAt(i).getLogin().getUsername().equals(username)&&
-					this.traineeVector.elementAt(i).getLogin().getPassword().equals(password)){
-				return true;
+	public String verifyLogin(String username, String password){
+		String userAccess = null;
+		for(int i = 0;i<this.getTraineeVector().size();i++){			
+			if(this.getTraineeVector().elementAt(i).getLogin().getUsername().equals(username)&&
+					this.getTraineeVector().elementAt(i).getLogin().getPassword().equals(password)){
+				if(this.getTraineeVector().elementAt(i).getLogin().getStatus().equals("admin")){
+					userAccess = "admin";
+				}else if(this.getTraineeVector().elementAt(i).getLogin().getStatus().equals("user")){
+					userAccess = "user";
+				}
 			}
 		}
-		return false;
+		return userAccess;
+		
 	}
 	
 }

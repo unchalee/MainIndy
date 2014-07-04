@@ -1,6 +1,12 @@
 package login;
 
-import fillRegisterProfile.*;
+import fillRegisterProfile.Login;
+import fillRegisterProfile.Register;
+import fillRegisterProfile.Trainee;
+
+
+
+
 
 public class RunLogin {
 
@@ -12,7 +18,7 @@ public class RunLogin {
 		// 4 - ระบบรับค่าชื่อผู้ใช้และรหัสผ่าน
 		// 5 - ระบบค้นหาชื่อผู้ใช้และรหัสผ่านภายในฐานข้อมูล
 		// 6 - ระบบคืนค่าสถานการตรวจสอบจากฐานข้อมูล
-		//ทดสอบใหม่นะ
+		
 		
 		Login login = new Login() ;
 		Trainee trainee  =new Trainee();
@@ -20,15 +26,17 @@ public class RunLogin {
 		
 		login.setUsername("user");
 		login.setPassword("4321");
+		login.setStatus("admin");
 		trainee.addLogin(login);
 		register.addTrainee(trainee);
 		
-		boolean verifyLogin = register.verifyLogin(username, password);
+		
+		String verifyLogin = register.verifyLogin(username, password);
 		
 		// 7 - ระบบตรวจสอบสถานการณ์คืนค่า
-		if(verifyLogin){
+		if(verifyLogin!=null){
 			// 8 - ระบบยอมให้ผู้ใช้เข้าสู่หน้าจอการทำงานหลักของผู้อบรม
-			System.out.println("Pass");
+			System.out.println("You're login as :"+verifyLogin);
 		}else{
 			System.out.println("No data found!! Please Try again");
 		}
