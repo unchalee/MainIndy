@@ -31,12 +31,13 @@ public class RunLogin {
 		register.addTrainee(trainee);
 		
 		
-		String verifyLogin = register.verifyLogin(username, password);
+		boolean verifyLogin = register.verifyLogin(username, password);
 		
 		// 7 - ระบบตรวจสอบสถานการณ์คืนค่า
-		if(verifyLogin!=null){
+		if(verifyLogin){
 			// 8 - ระบบยอมให้ผู้ใช้เข้าสู่หน้าจอการทำงานหลักของผู้อบรม
-			System.out.println("You're login as :"+verifyLogin);
+			String accessStatus = register.searchUserAccessStatus(username);
+			System.out.println("You're login as :"+accessStatus);
 		}else{
 			System.out.println("No data found!! Please Try again");
 		}
